@@ -1,0 +1,59 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background-color: white;
+}
+
+#drawing_window {
+    position: fixed;
+    inset: 0;
+    background-color: white;
+    z-index: 0;
+}
+
+
+/* the nodes (people) that will be added onto the canvas*/
+#container {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    z-index: 1;
+
+    /* allows clicks to pass through except on the nodes */
+    pointer-events: none;
+
+    transform: translate(0px, 0px);
+    will-change: transform;
+}
+
+.person {
+    /*display*/
+    display: inline-block;
+    align-self: flex-start;
+
+    border: 2px solid black;
+    border-radius: 8px;
+
+    padding: 10px 18px;
+    margin: 2px 0;
+
+    font-size: 18px;
+    font-weight: 500;
+
+    /* move to a new line if the word width exceeds 300px */
+    width: fit-content;
+    max-width: 300px;
+    overflow-wrap: break-word;
+
+    pointer-events: auto;
+
+    /* makes transform updates smoother */
+    position: absolute;
+    transform: translate(0px, 0px);
+
+    will-change: transform;
+}
